@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +36,8 @@ public class UserController {
 			return ResponseEntity.badRequest().build();
 		}
 		
-		HttpSession session = httpServletRequest.getSession(true);
-		session.setAttribute("id", body.getId());
+		HttpSession session = httpServletRequest.getSession();
+		session.setAttribute("id", user.get().getId());
 		session.setMaxInactiveInterval(600);
 		
 		return ResponseEntity.ok().build();
