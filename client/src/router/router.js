@@ -3,13 +3,18 @@ import { createWebHistory, createRouter } from "vue-router";
 import MainView from "../view/MainView.vue";
 import LoginView from "../view/LoginView.vue";
 import ChartView from "../view/ChartView.vue";
+import Outlet from "../components/Outlet.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: MainView },
     { path: "/login", component: LoginView },
-    { path: "/chart", component: ChartView },
+    { path: "/",
+      component: Outlet,
+      children: [
+        {path: "", component: MainView},
+        { path: "chart", component: ChartView }
+    ] },
   ],
 });
 
