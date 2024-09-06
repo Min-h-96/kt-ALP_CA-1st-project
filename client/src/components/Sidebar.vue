@@ -1,4 +1,20 @@
-<script setup></script>
+<script setup>
+import axios from "axios";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const logout = async () => {
+  await axios("http://localhost:8080/api/logout", {
+    header: {
+      "Context-Type": "application/json",
+    },
+  }).then(res => {
+    router.replace('/login');
+  })
+};
+
+</script>
 
 <template>
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -27,12 +43,16 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-      <a class="nav-link" href="/chart">
-        <span>Charts</span></a>
+      <a class="nav-link" href="/chart"><span>Charts</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Heading -->
+    <div v-on:click="logout" class="sidebar-heading">
+      Logout
+    </div>
   </ul>
 </template>
 

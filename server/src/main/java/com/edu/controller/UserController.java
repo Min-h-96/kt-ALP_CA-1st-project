@@ -4,8 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +36,7 @@ public class UserController {
 		}
 		
 		HttpSession session = httpServletRequest.getSession();
-		session.setAttribute("id", user.get().getId());
+		session.setAttribute("user", user.get());
 		session.setMaxInactiveInterval(600);
 		
 		return ResponseEntity.ok().build();
@@ -45,7 +44,6 @@ public class UserController {
 	
 	@GetMapping("/logout")
 	public ResponseEntity<UserDTO> logout(HttpServletRequest httpServletRequest) {
-		
 		HttpSession session = httpServletRequest.getSession(false);
 		
         if(session != null) {
