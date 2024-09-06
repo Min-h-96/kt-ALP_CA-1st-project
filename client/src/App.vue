@@ -13,6 +13,7 @@ const checkLoginState = async () => {
     },
   }).then(res => {
     console.log(res.status);
+    console.log(res.data);
   }).catch(err => {
     router.replace("/login");
   })

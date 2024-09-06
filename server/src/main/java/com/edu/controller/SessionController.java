@@ -15,11 +15,9 @@ public class SessionController {
     public ResponseEntity<UserDTO> getUserFromSession(HttpSession session) {
         // 세션에서 User 객체 가져오기
 		UserDTO user = (UserDTO) session.getAttribute("user");
-		
-		System.out.println(user);
         
         if (user != null) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.status(200).body(user);
         } else {
             return ResponseEntity.badRequest().build();
         }
