@@ -23,7 +23,7 @@ const requestLogin = async () => {
       router.push("/");
     })
     .catch((res) => {
-      console.log("실패");
+      alert("아이디 또는 비밀번호가 잘못되었습니다.");
     });
 };
 </script>
