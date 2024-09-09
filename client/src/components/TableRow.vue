@@ -1,11 +1,13 @@
 <script setup>
-import { defineProps, onUpdated } from "vue";
+import { defineProps } from "vue";
+import { useRouter } from "vue-router";
 
 const props = defineProps(["scenarios"]);
+const router = useRouter();
 
-onUpdated(() => {
-  console.log(props.scenarios[0]);
-});
+const toScenarioView = (id) => {
+  router.replace({ name: "mod-scenario", params: { id: id } });
+};
 </script>
 
 <template>
@@ -15,7 +17,9 @@ onUpdated(() => {
     <td>{{ scenario.title }}</td>
     <td>{{ scenario.content }}</td>
     <td>{{ scenario.createdAt.substr(0, 10) }}</td>
-    <td><button>mod</button></td>
+    <td>
+      <button v-on:click="toScenarioView(scenario.scenario_id)">mod</button>
+    </td>
     <td><button>delete</button></td>
   </tr>
 </template>
