@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from "vue";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,9 +8,9 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend
-} from 'chart.js'
-import { Line } from 'vue-chartjs'
+  Legend,
+} from "chart.js";
+import { Line } from "vue-chartjs";
 
 ChartJS.register(
   CategoryScale,
@@ -20,15 +20,14 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
-)
+);
 
 const options = {
   responsive: true,
-  maintainAspectRatio: false
-}
+  maintainAspectRatio: false,
+};
 
 const props = defineProps(["data"]);
-
 </script>
 
 <template>

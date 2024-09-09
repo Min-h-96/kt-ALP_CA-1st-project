@@ -4,6 +4,7 @@ import { onBeforeMount } from "vue";
 import Chart from "../components/Chart.vue";
 
 import { chart } from "../stores/chartData";
+import { date } from "../stores/dateData";
 
 onBeforeMount(() => {
   chart.updateData();
@@ -17,9 +18,9 @@ onBeforeMount(() => {
         <Chart :data="chart.data" />
       </div>
       <div class="d-flex">
-        <button v-on:click="chart.updateData('hi')"><</button>
-        <p>2024년 9월</p>
-        <button v-on:click="chart.updateData('hi')">></button>
+        <button v-on:click="date.preMonth()"><</button>
+        <p>{{ date.year }}년 {{ date.month }}월</p>
+        <button v-on:click="date.nextMonth()">></button>
       </div>
     </div>
   </div>
