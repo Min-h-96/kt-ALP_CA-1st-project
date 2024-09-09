@@ -13,7 +13,7 @@ onBeforeMount(() => {
 
 <template>
   <div class="row">
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-8 col-lg-7 m-4">
       <div class="d-flex center">
         <button v-on:click="date.preMonth()" class="btn-date"><</button>
         <p class="text-date">{{ date.year }}년 {{ date.month }}월</p>
