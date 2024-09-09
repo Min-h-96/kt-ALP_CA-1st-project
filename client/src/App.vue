@@ -12,8 +12,7 @@ const checkLoginState = async () => {
       "Context-Type": "application/json",
     },
   }).then(res => {
-    console.log(res.status);
-    console.log(res.data);
+    console.log("로그인 여부 확인!");
   }).catch(err => {
     router.replace("/login");
   })
