@@ -14,16 +14,34 @@ onBeforeMount(() => {
 <template>
   <div class="row">
     <div class="col-xl-8 col-lg-7">
+      <div class="d-flex center">
+        <button v-on:click="date.preMonth()" class="btn-date"><</button>
+        <p class="text-date">{{ date.year }}년 {{ date.month }}월</p>
+        <button v-on:click="date.nextMonth()" class="btn-date">></button>
+      </div>
       <div class="card shadow mb-4">
         <Chart :data="chart.data" />
-      </div>
-      <div class="d-flex">
-        <button v-on:click="date.preMonth()"><</button>
-        <p>{{ date.year }}년 {{ date.month }}월</p>
-        <button v-on:click="date.nextMonth()">></button>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.center {
+  justify-content: center;
+}
+
+.btn-date {
+  margin: 0.5rem;
+  background-color: #8dc6ff;
+  border: none;
+  border-radius: 15%;
+  color: azure;
+}
+
+.text-date {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+</style>
