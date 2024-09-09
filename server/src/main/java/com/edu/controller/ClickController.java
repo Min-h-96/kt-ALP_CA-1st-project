@@ -27,7 +27,6 @@ public class ClickController {
 	
 	@GetMapping()
 	public ResponseEntity<List<ClickCountDTO>> getClicks(HttpSession session, @RequestParam(value = "year") int year, @RequestParam(value = "month") int month) {
-		System.out.println(year + " " + month);
 		UserDTO user = (UserDTO) session.getAttribute("user");
 		
 		List<ClickCountDTO> clicks = (ArrayList<ClickCountDTO>) clickService.findByYearAndMonth(user.getId(), year, month);

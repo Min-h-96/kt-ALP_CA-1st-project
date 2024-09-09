@@ -7,7 +7,7 @@ export const chart = reactive({
     datasets: [
       {
         label: "질문 클릭 수",
-        backgroundColor: "#f87979",
+        backgroundColor: "#4e73df",
         data: [],
       },
     ],
@@ -20,7 +20,7 @@ export const chart = reactive({
     const datasets = [
       {
         label: "질문 클릭 수",
-        backgroundColor: "#f87979",
+        backgroundColor: "#4e73df",
         data: [],
       },
     ];

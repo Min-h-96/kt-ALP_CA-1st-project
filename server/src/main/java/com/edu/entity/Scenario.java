@@ -25,7 +25,7 @@ public class Scenario {
 	private Long chatbot_id;
 	private String title;
 	private String content;
-	private LocalDateTime createAt;
+	private LocalDateTime createdAt;
 	private Boolean use;
 	private Long used_count;
 }
