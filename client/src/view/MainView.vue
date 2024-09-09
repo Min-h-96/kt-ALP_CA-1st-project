@@ -1,7 +1,7 @@
 <script setup>
 import axios from "axios";
 
-import TableRow from "../components/TableRow.vue";
+import ScenarioTableRow from "../components/ScenarioTableRow.vue";
 
 import { scenarios } from "../stores/scenarioData";
 
@@ -38,7 +38,7 @@ loadScenario();
           </tr>
         </thead>
         <tbody>
-          <TableRow :scenarios="scenarios.data" />
+          <ScenarioTableRow :scenarios="scenarios.data" />
         </tbody>
       </table>
     </div>

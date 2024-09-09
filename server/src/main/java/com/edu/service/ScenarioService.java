@@ -17,11 +17,11 @@ public class ScenarioService {
 	private ScenarioRepository scenarioRepository;
 	
 	public List<ScenarioDTO> loadScenarios(Long user_id) {
-		List<Scenario> lst = scenarioRepository.findAllbyUserId(user_id);
+		List<Scenario> scenarios = scenarioRepository.findAllbyUserId(user_id);
 		
 		List<ScenarioDTO> result = new ArrayList<ScenarioDTO>();
 		
-		for (Scenario s : lst) {
+		for (Scenario s : scenarios) {
 			result.add(ScenarioDTO.builder()
 								  .chatbot_id(s.getChatbot_id())
 								  .scenario_id(s.getScenario_id())
