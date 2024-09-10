@@ -18,7 +18,7 @@ const toScenarioView = (id) => {
     <td>{{ scenario.content }}</td>
     <td>{{ scenario.createdAt.substr(0, 10) }}</td>
     <td>
-      <button v-on:click="toScenarioView(scenario.scenario_id)">mod</button>
+      <button v-on:click="toScenarioView(scenario.scenario_id)">detail</button>
     </td>
     <td><button>delete</button></td>
   </tr>

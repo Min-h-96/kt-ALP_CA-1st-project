@@ -1,7 +1,7 @@
 <script setup>
 import axios from "axios";
 
-import QuestionTableRow from "../components/QuestionTableRow.vue";
+import QuestionTableRow from "../components/TreeItem.vue";
 
 import { questions } from "../stores/questionData";
 
@@ -16,9 +16,7 @@ const loadQuestion = async () => {
       },
     })
     .then((res) => {
-      console.log(res.data);
-
-      questions.update(res.data);
+      questions.sort(res.data);
     })
     .catch((err) => {});
 };
@@ -26,21 +24,11 @@ loadQuestion();
 </script>
 
 <template>
-  <div class="col-xl-8 col-lg-7 m-4">
+  <div class="col-xl-10 col-lg-7 m-4">
     <p>Scenario List</p>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">No.</th>
-          <th scope="col">content</th>
-          <th scope="col">question_step</th>
-          <th scope="col">pre_question_id</th>
-        </tr>
-      </thead>
-      <tbody>
-        <QuestionTableRow :questions="questions.data" />
-      </tbody>
-    </table>
+    <ul v-if="questions.data">
+      <QuestionTableRow :questions="questions.data" />
+    </ul>
   </div>
 </template>
 

@@ -33,7 +33,7 @@ loadScenario();
             <th scope="col">title</th>
             <th scope="col">content</th>
             <th scope="col">createdAt</th>
-            <th scope="col">modify</th>
+            <th scope="col">detail</th>
             <th scope="col">delete</th>
           </tr>
         </thead>
