@@ -10,6 +10,8 @@ import com.edu.dto.QuestionDTO;
 import com.edu.entity.Question;
 import com.edu.repository.QuestionRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class QuestionService {
 
@@ -33,5 +35,12 @@ public class QuestionService {
 		}
 		
 		return result;
+	}
+	
+	@Transactional
+	public void updateQuestion(QuestionDTO questionDTO) {
+		Question question = questionRepository.findById(questionDTO.getQuestion_id()).orElse(null);
+		
+		question.setContent(questionDTO.getContent());
 	}
 }
